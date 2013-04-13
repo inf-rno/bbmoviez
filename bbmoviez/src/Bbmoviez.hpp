@@ -4,8 +4,10 @@
 
 #include <QObject>
 
-namespace bb { namespace cascades { class Application; }}
+namespace bb { namespace cascades { class Application; class QmlDocument;}}
+//namespace controller{}
 
+//class Controller;
 /*!
  * @brief Application pane object
  *
@@ -17,6 +19,13 @@ class Bbmoviez : public QObject
 public:
     Bbmoviez(bb::cascades::Application *app);
     virtual ~Bbmoviez() {}
+
+private:
+    bb::cascades::QmlDocument* m_root;
+    /**
+	 * initialize the controllers.
+	 */
+	void initializeControllers();
 };
 
 #endif /* Bbmoviez_HPP_ */

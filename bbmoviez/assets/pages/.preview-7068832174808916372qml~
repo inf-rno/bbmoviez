@@ -17,5 +17,9 @@ Page {
                 navigationPane.push(page);
             }           
         }
+        TextField {
+            id: search
+            inputMode: TextFieldInputMode.Text
+        }
     }
 }

@@ -7,11 +7,11 @@ INCLUDEPATH +=  \
     $$BASEDIR/src
 
 SOURCES +=  \
-    $$BASEDIR/src/Bbmoviez.cpp \
+    $$BASEDIR/src/bbmoviez.cpp \
     $$BASEDIR/src/main.cpp
 
 HEADERS +=  \
-    $$BASEDIR/src/Bbmoviez.hpp
+    $$BASEDIR/src/bbmoviez.hpp
 
 CONFIG += precompile_header
 PRECOMPILED_HEADER = $$BASEDIR/precompiled.h

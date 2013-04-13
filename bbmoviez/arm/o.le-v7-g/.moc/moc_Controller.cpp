@@ -1,15 +1,15 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'Bbmoviez.hpp'
+** Meta object code from reading C++ file 'Controller.hpp'
 **
-** Created: Sat Apr 13 18:25:50 2013
+** Created: Sat Apr 13 18:25:48 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../src/Bbmoviez.hpp"
+#include "../../../src/controllers/Controller.hpp"
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'Bbmoviez.hpp' doesn't include <QObject>."
+#error "The header file 'Controller.hpp' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
 #error "This file was generated using the moc from 4.8.4. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -17,7 +17,7 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_Bbmoviez[] = {
+static const uint qt_meta_data_Controller[] = {
 
  // content:
        6,       // revision
@@ -33,11 +33,11 @@ static const uint qt_meta_data_Bbmoviez[] = {
        0        // eod
 };
 
-static const char qt_meta_stringdata_Bbmoviez[] = {
-    "Bbmoviez\0"
+static const char qt_meta_stringdata_Controller[] = {
+    "Controller\0"
 };
 
-void Bbmoviez::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void Controller::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -45,33 +45,33 @@ void Bbmoviez::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     Q_UNUSED(_a);
 }
 
-const QMetaObjectExtraData Bbmoviez::staticMetaObjectExtraData = {
+const QMetaObjectExtraData Controller::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject Bbmoviez::staticMetaObject = {
-    { &QObject::staticMetaObject, qt_meta_stringdata_Bbmoviez,
-      qt_meta_data_Bbmoviez, &staticMetaObjectExtraData }
+const QMetaObject Controller::staticMetaObject = {
+    { &QObject::staticMetaObject, qt_meta_stringdata_Controller,
+      qt_meta_data_Controller, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &Bbmoviez::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &Controller::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *Bbmoviez::metaObject() const
+const QMetaObject *Controller::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *Bbmoviez::qt_metacast(const char *_clname)
+void *Controller::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_Bbmoviez))
-        return static_cast<void*>(const_cast< Bbmoviez*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_Controller))
+        return static_cast<void*>(const_cast< Controller*>(this));
     return QObject::qt_metacast(_clname);
 }
 
-int Bbmoviez::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int Controller::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
