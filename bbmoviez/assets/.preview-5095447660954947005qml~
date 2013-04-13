@@ -1,6 +1,7 @@
 // Navigation pane project template
 import bb.cascades 1.0
 
+
 Page {
     // page with a picture detail
     id: pgDetail
