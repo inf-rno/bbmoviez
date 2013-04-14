@@ -15,17 +15,21 @@ public:
 
 	explicit SearchController(bb::cascades::QmlDocument* rootQML);
 	virtual ~SearchController();
+	void bindDataModel(const QString& listVewName, QVariantList& dataSet);
 
 public slots:
 	void search(QString criteria);
-	void bindData();
+	void bindData(QString list);
 
 signals:
 	void searchResolved();
 
 private:
 	//bb::cascades::QmlDocument* my_root;
+	bb::cascades::AbstractPane* m_rootPage;
 	bb::cascades::GroupDataModel* m_model;
+
+	QVariantList m_myMovies;
 };
 
 #endif /* SEARCHCONTROLLER_H_ */
