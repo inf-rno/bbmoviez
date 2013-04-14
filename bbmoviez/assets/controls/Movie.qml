@@ -1,28 +1,31 @@
 import bb.cascades 1.0
 
 Container {
+    id: movieItem
+    
     property string name
     property string members
-    property string pictureUrl
+    property string pictureUrl  
+    property string movieId  
 
-    layout: DockLayout {
+    preferredWidth: 768
+    layout: StackLayout {        
     }
     
     Container{
-
+        
         horizontalAlignment: HorizontalAlignment.Left
         verticalAlignment: VerticalAlignment.Fill
         layout: StackLayout {
             orientation: LayoutOrientation.LeftToRight
         }
     
-	   /* NetImageView {
+	    ImageView {
 	        preferredWidth: 81
 	        minWidth: 81
 	        preferredHeight: 81
-	        imageUrl: pictureUrl
-	        defaultImage: "asset:///images/controls/default_group.png"
-	    }*/
+	        imageSource: ""//pictureUrl	        
+	    }
 	    
 	    Container {
 	        layout: StackLayout {
@@ -47,22 +50,18 @@ Container {
 		            textStyle.fontSize: FontSize.Medium
 		            textStyle.color: Color.White	            
 		        }	        
-		    }
-	    }
+		    }		    
+	    }	        
+    }    
+    Container {
+        horizontalAlignment: HorizontalAlignment.Fill
+        preferredHeight: 4
+        background: Color.create("#00A7DE")
     }
-    /*Container {
-        layout: DockLayout {
+    onTouch: {
+        if(event.isDown()) {                             
+            movieItem.ListItem.view.pushDetails();
+            movieItem.ListItem.view.getController().searchMovieDetails(name);                      
         }
-        minWidth: sizeStyle.profChevSize
-        maxWidth: sizeStyle.profChevSize
-        horizontalAlignment: HorizontalAlignment.Right
-        verticalAlignment: VerticalAlignment.Fill
-        ImageView {
-            preferredWidth: 21
-            preferredHeight: 31
-            imageSource: chevronSrc
-            horizontalAlignment: HorizontalAlignment.Right
-            verticalAlignment: VerticalAlignment.Center
-        }
-    }*/
+    }   	    
 }

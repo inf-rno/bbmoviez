@@ -24,8 +24,7 @@ Page {
             }
         }
     }
-    Container {
-        background: Color.Black
+    PageBkg {        
         Label {
             text: qsTr("Page 2")
             horizontalAlignment: HorizontalAlignment.Center
@@ -51,32 +50,29 @@ Page {
             onTriggered: {
                 var selectedItem = dataModel.data(indexPath);
                 
-                /*if (selectedItem.type == "SuggestedIndustries" || 
-                    selectedItem.type == "FollowingIndustries"){                
-                    var activeTab = tabPane.activeTab;
-		            var detailsPage = industryNewsPage.createObject();
-		            activeTab.content.push(detailsPage);
-		            _industriesController.fetchInustryArticles(selectedItem.industryId);
-		            detailsPage.bindData(selectedItem.name,selectedItem.industryId,selectedItem.isFollowing);             
-                }
-                else if (selectedItem.type == "MoreSuggestions"){                
-                    var activeTab = tabPane.activeTab;
-		            var detailsPage = suggestedIndustriesPage.createObject();
-		            activeTab.content.push(detailsPage);
-		            detailsPage.bindData();                 
-                }*/
+                if (selectedItem.type == "item"){                                    
+		            //var page = movieDetailsPage.createObject();
+                    //navigationPane.push(page);
+                    //page.bindData();
+                    //_searchController.searchMovieDetails(selectedItem.movieId);             
+                }                
             }
             function getController() {
-                
+                return _searchController;
+            } 
+            function pushDetails() {
+                var page = movieDetailsPage.createObject();
+                navigationPane.push(page);    
             }                
             listItemComponents: [                                               
                 ListItemComponent {
                     id:liMovies
-                    type: "movies"                                 
-                    Movie {                        
-                        name: "name"//ListItemData.name
-                        members: "details"//ListItemData.details
-                        pictureUrl: "pictureUrl"//ListItemData.picUrl                                                         
+                    type: "item"                                                                 
+                    Movie {          
+                        movieId: ListItemData.id
+                        name: ListItemData.firstName
+                        members: ListItemData.lastName
+                        pictureUrl: ListItemData.employeeNumber                                                         
                     }                               
                 }
             ]                

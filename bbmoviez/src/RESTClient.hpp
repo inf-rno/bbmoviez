@@ -18,7 +18,8 @@ public:
 	}
 	// Returns class instance
 	static RESTClient* getInstance();
-	QString requestJson();
+	void requestJson();
+	void movieDetails(QString url);
 
 Q_SIGNALS:
 	void downloadCompleted(QString);

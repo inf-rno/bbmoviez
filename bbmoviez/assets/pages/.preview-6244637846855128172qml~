@@ -1,11 +1,11 @@
 import bb.cascades 1.0
+import "../controls" 1.0
 
 Page {
     property int screenWidth: 768
     property int screenHeight: 1280;
     // page with a picture thumbnail
-    Container {
-        background: Color.Black        
+    PageBkg {                
         preferredWidth: screenWidth
         preferredHeight: screenHeight
         layout: StackLayout {
@@ -49,7 +49,7 @@ Page {
 	}	
     function navDetails() {  
         //_searchController.bindData();   
-        var page = detailsPage.createObject();
+        var page = movieListPage.createObject();
         navigationPane.push(page);
         page.bindData();
     }
