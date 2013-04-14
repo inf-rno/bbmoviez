@@ -1,6 +1,7 @@
 // Navigation pane project template
 import bb.cascades 1.0
 import "../controls" 1.0
+import bbmoviez.app 1.0
 
 Page {
     // page with a picture detail
@@ -23,8 +24,7 @@ Page {
             }
         }
     }
-    Container {
-        background: Color.Black
+    PageBkg {        
         Label {
             text: qsTr("Page 2")
             horizontalAlignment: HorizontalAlignment.Center
@@ -45,36 +45,30 @@ Page {
         ListView {
             id: moviesListView
             objectName:"moviesList"
+            dataModel: ListDataModel{}
             
             onTriggered: {
                 var selectedItem = dataModel.data(indexPath);
                 
-                /*if (selectedItem.type == "SuggestedIndustries" || 
-                    selectedItem.type == "FollowingIndustries"){                
-                    var activeTab = tabPane.activeTab;
-		            var detailsPage = industryNewsPage.createObject();
-		            activeTab.content.push(detailsPage);
-		            _industriesController.fetchInustryArticles(selectedItem.industryId);
-		            detailsPage.bindData(selectedItem.name,selectedItem.industryId,selectedItem.isFollowing);             
-                }
-                else if (selectedItem.type == "MoreSuggestions"){                
-                    var activeTab = tabPane.activeTab;
-		            var detailsPage = suggestedIndustriesPage.createObject();
-		            activeTab.content.push(detailsPage);
-		            detailsPage.bindData();                 
-                }*/
+                if (selectedItem.type == "item"){                                    
+		            /*var page = detailsPage.createObject();
+                    navigationPane.push(page);
+                    page.bindData();*/
+                    _searchController.searchMovieDetails(selectedItem.movieId);             
+                }                
             }
             function getController() {
-                
+                return _searchController;
             }                
             listItemComponents: [                                               
                 ListItemComponent {
                     id:liMovies
-                    type: "movies"                                 
+                    type: "item"     
+                    property string movieId: ListItemData.id                                            
                     Movie {                        
-                        name: "name"//ListItemData.name
-                        members: "details"//ListItemData.details
-                        pictureUrl: "pictureUrl"//ListItemData.picUrl                                                         
+                        name: ListItemData.firstName
+                        members: ListItemData.lastName
+                        pictureUrl: ListItemData.employeeNumber                                                         
                     }                               
                 }
             ]                

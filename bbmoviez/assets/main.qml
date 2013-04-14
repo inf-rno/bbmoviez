@@ -8,8 +8,12 @@ NavigationPane {
     
     attachedObjects: [
         ComponentDefinition {
-            id: detailsPage
-            source: "asset:///pages/DetailsPage.qml"
+            id: movieListPage
+            source: "asset:///pages/MovieListPage.qml"
+        },
+        ComponentDefinition {
+            id: movieDetailsPage
+            source: "asset:///pages/MovieDetails.qml"
         }
     ]
     
