@@ -15,3 +15,13 @@ HEADERS +=  ../src/controllers/*.hpp
 HEADERS +=  ../src/controllers/*.h
 HEADERS +=  ../src/controllers/home/*.hpp
 HEADERS +=  ../src/controllers/home/*.h
+
+LIBS += -lpps
+LIBS += -lcurl
+LIBS += -lcsm
+LIBS += -lbbdevice
+LIBS += -lbbsystem
+LIBS += -lbbdata
+LIBS += -lbb
+LIBS += -lbbplatform
+LIBS += -lbbpim
