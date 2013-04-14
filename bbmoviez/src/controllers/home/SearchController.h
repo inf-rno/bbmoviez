@@ -16,6 +16,7 @@ public:
 	explicit SearchController(bb::cascades::QmlDocument* rootQML);
 	virtual ~SearchController();
 	void bindDataModel(const QString& listVewName, QVariantList& dataSet);
+	Q_INVOKABLE void handleMoviePicked(){emit moviePicked();}
 
 public slots:
 	void search(QString criteria);
@@ -23,6 +24,7 @@ public slots:
 
 signals:
 	void searchResolved();
+	void moviePicked();
 
 private:
 	//bb::cascades::QmlDocument* my_root;

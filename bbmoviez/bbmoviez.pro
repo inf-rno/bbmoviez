@@ -3,6 +3,8 @@ TARGET = bbmoviez
 
 CONFIG += qt warn_on cascades10
 
+INCLUDEPATH += ../../../bbmoviez/
+INCLUDEPATH += ../../Box2D/
 INCLUDEPATH += ../src
 INCLUDEPATH += ../src/REST/
 INCLUDEPATH += ../src/controllers
@@ -25,3 +27,4 @@ LIBS += -lbbdata
 LIBS += -lbb
 LIBS += -lbbplatform
 LIBS += -lbbpim
+LIBS += $$_PRO_FILE_PWD_/../Box2D/Device-Debug/libBox2D.a
