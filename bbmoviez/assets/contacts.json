@@ -1,0 +1,17 @@
+[
+    {
+        "firstName" : "Mike",
+        "lastName" : "Chepesky",
+        "employeeNumber" : 01840192
+    },
+    {
+        "firstName" : "Westlee",
+        "lastName" : "Barichak",
+        "employeeNumber" : 47901927
+    },
+    {
+        "firstName" : "Ian",
+        "lastName" : "Dundas",
+        "employeeNumber" : 29472012
+    }
+]

@@ -47,8 +47,10 @@ Page {
 	        }
 	    }
 	}	
-    function navDetails() {     
+    function navDetails() {  
+        _searchController.bindData();   
         var page = detailsPage.createObject();
         navigationPane.push(page);
+        //page.bindData();
     }
 }
