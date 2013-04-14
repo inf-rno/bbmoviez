@@ -16,9 +16,13 @@ namespace bb { namespace cascades { class Application; class QmlDocument;}}
 class Bbmoviez : public QObject
 {
     Q_OBJECT
+
 public:
     Bbmoviez(bb::cascades::Application *app);
     virtual ~Bbmoviez() {}
+
+public Q_SLOTS:
+    void doStuff(QString);
 
 private:
     bb::cascades::QmlDocument* m_root;
