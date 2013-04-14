@@ -1,6 +1,7 @@
 // Navigation pane project template
 import bb.cascades 1.0
 import "../controls" 1.0
+import bbmoviez.app 1.0
 
 Page {
     // page with a picture detail
@@ -45,6 +46,7 @@ Page {
         ListView {
             id: moviesListView
             objectName:"moviesList"
+            dataModel: ListDataModel{}
             
             onTriggered: {
                 var selectedItem = dataModel.data(indexPath);

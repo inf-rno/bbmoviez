@@ -1,5 +1,6 @@
 // Navigation pane project template
 #include "Bbmoviez.hpp"
+#include "ListDataModel.hpp"
 
 #include <bb/cascades/Application>
 
@@ -29,6 +30,8 @@ void myMessageOutput(QtMsgType type, const char *msg) {
 
 Q_DECL_EXPORT int main(int argc, char **argv)
 {
+	qmlRegisterType<ListDataModel>("bbmoviez.app", 1, 0, "ListDataModel");
+
     // this is where the server is started etc
     Application app(argc, argv);
 #ifndef QT_NO_DEBUG
