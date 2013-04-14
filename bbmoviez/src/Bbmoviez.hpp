@@ -4,8 +4,10 @@
 
 #include <QObject>
 
-namespace bb { namespace cascades { class Application; class QmlDocument;}}
+namespace bb { namespace cascades { class Application; class QmlDocument; class AbstractPane; class Page;class Container;}}
 //namespace controller{}
+
+using namespace bb::cascades;
 
 //class Controller;
 /*!
@@ -23,13 +25,21 @@ public:
 
 public Q_SLOTS:
     void doStuff(QString);
+    void showNodePage();
 
 private:
-    bb::cascades::QmlDocument* m_root;
+    QmlDocument* m_root;
+    AbstractPane* m_rootPane;
+    Page* m_nodePane;
+    QList<Container *> m_containerList;
     /**
 	 * initialize the controllers.
 	 */
 	void initializeControllers();
+	void physics ();
+	float convertToRange(float value, float* srcRange, float* dstRange);
+
+
 };
 
 #endif /* Bbmoviez_HPP_ */
