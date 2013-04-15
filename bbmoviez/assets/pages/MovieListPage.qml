@@ -6,7 +6,8 @@ import bbmoviez.app 1.0
 Page {
     // page with a picture detail
     id: pgDetail
-    actions: [
+    property string movieName
+    /*actions: [
         // create navigation panel actions here
         ActionItem {
             title: qsTr("Break")
@@ -14,7 +15,7 @@ Page {
                 imgView.imageSource = "asset:///images/picture1br.png"
             }
         }
-    ]
+    ]*/
     paneProperties: NavigationPaneProperties {
         backButton: ActionItem {
             onTriggered: {
@@ -25,7 +26,7 @@ Page {
         }
     }
     PageBkg {        
-        Label {
+        /*Label {
             text: qsTr("Page 2")
             horizontalAlignment: HorizontalAlignment.Center
             textStyle {
@@ -41,21 +42,23 @@ Page {
         Label {
             text: qsTr("Picture description")
             horizontalAlignment: HorizontalAlignment.Center
-        }
+        }*/
         ListView {
             id: moviesListView
             objectName:"moviesList"
             dataModel: ListDataModel{}
             
             onTriggered: {
-                var selectedItem = dataModel.data(indexPath);
+                var selectedItem = moviesListView.dataModel.data(indexPath);
                 
-                if (selectedItem.type == "item"){                                    
-		            //var page = movieDetailsPage.createObject();
-                    //navigationPane.push(page);
+                //if (selectedItem.type == "item"){                                    
+		            var page = movieDetailsPage.createObject();
+                    navigationPane.push(page);
+                    _searchController.searchMovieDetails(selectedItem.firstName);
+                    //movieItem.ListItem.view.getController().searchMovieDetails(name);
                     //page.bindData();
                     //_searchController.searchMovieDetails(selectedItem.movieId);             
-                }                
+                //}                
             }
             function getController() {
                 return _searchController;
@@ -64,15 +67,34 @@ Page {
                 var page = movieDetailsPage.createObject();
                 navigationPane.push(page);    
             }                
-            listItemComponents: [                                               
+            listItemComponents: [  
+                ListItemComponent {
+                    type: "header"
+                    Container {
+                        preferredWidth: 768
+	                    Label {
+	                        horizontalAlignment: HorizontalAlignment.Center
+	                        text: "Movies"
+	                        textStyle.color: Color.Red
+	                        textStyle.fontWeight: FontWeight.Bold
+            	            textStyle.fontSize: FontSize.XXLarge
+	                    }
+	                    Container {
+                            horizontalAlignment: HorizontalAlignment.Fill
+                            preferredHeight: 4
+                            background: Color.create("#00A7DE")
+                        } 
+	                }
+                },                                             
                 ListItemComponent {
                     id:liMovies
-                    type: "item"                                                                 
+                    type: "item" 
+                    property string movieName: ListItemData.firstName                                                          
                     Movie {          
                         movieId: ListItemData.id
                         name: ListItemData.firstName
                         members: ListItemData.lastName
-                        pictureUrl: ListItemData.employeeNumber                                                         
+                        //pictureUrl: ListItemData.employeeNumber                                                         
                     }                               
                 }
             ]                

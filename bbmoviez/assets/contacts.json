@@ -1,20 +1,30 @@
 [
     {
         "firstName" : "Terminator Salvation",
-        "lastName" : "Chepesky",
-        "employeeNumber" : 01840192,
-        "id": 770672122
-    },
-    {
-        "firstName" : "Last Action Hero",
-        "lastName" : "Barichak",
-        "employeeNumber" : 47901927,
-        "id": 770672122
-    },
+        "lastName" : "2009"        
+    },    
     {
         "firstName" : "Forest Gump",
-        "lastName" : "Dundas",
-        "employeeNumber" : 29472012,
-        "id": 770672122
-    }
+        "lastName" : "1994"        
+    },    
+    {
+        "firstName" : "Citizen Kane",
+        "lastName" : "1941"        
+    },
+    {
+        "firstName" : "Pulp Fiction",
+        "lastName" : "1994"        
+    },
+    {
+        "firstName" : "The Shawshank Redemption",
+        "lastName" : "1994"        
+    },
+    {
+        "firstName" : "The Dark Knight",
+        "lastName" : "2012"        
+    },
+    {
+        "firstName" : "Reservoir Dogs",
+        "lastName" : "1992"        
+    }    
 ]

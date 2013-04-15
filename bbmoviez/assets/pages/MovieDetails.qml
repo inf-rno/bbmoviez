@@ -1,19 +1,10 @@
 import bb.cascades 1.0
+import bbmoviez.app 1.0
 import "../"
 import "../controls" 1.0
 
 Page{
-    property string name
-    property string headline
-    property string subHeadline
-    property string timeStamp
-    property string pictureUrl
-    property string subPictureUrl
-    property string subUrl
-    property string numLikes
-    property bool showLikes
-    property string numComments
-    property bool showComments
+    property string fullImageUrl
 	PageBkg{
 	ScrollView {
 	    Container {
@@ -23,18 +14,26 @@ Page{
 			        orientation: LayoutOrientation.LeftToRight
 			    }
 			    Container {
-			        topPadding: 3
-			        leftPadding: 3
-			        rightPadding: 3
-			        bottomPadding: 3
+			        topPadding: 10
+			        leftPadding: 10
+			        rightPadding: 10
+			        bottomPadding: 10
 			        background: Color.White
-			        ImageView {
-			            minWidth: 150
-			            maxWidth: 150
-			            minHeight: 150
-			            maxHeight: 150
-			            imageSource: pictureUrl            
+			        WebImageView {
+			            id: thumbnail
+			            minWidth: 320
+			            maxWidth: 320
+			            minHeight: 320
+			            maxHeight: 320			                   
 			        }
+			        
+			        onTouch: {
+		                if(event.isDown()) {
+		                    var page = fullImagePage.createObject();
+                            navigationPane.push(page);     
+                            page.populateUI(fullImageUrl);                            		                                      
+		                }
+		            } 
 			    }
 			    Container {
 			        preferredWidth: 768			        
@@ -66,7 +65,8 @@ Page{
 			                    maxWidth: containerId.getContainerWidth()
 			                    textStyle.color: Color.Red
 			                    textStyle.fontWeight: FontWeight.Bold
-	            	            textStyle.fontSize: FontSize.Large
+	            	            textStyle.fontSize: FontSize.XLarge
+	            	            multiline: true
 			                }
 			                Label {    
 			                    id: mvYear                		                    		                    
@@ -79,14 +79,7 @@ Page{
 			                    textStyle.color: Color.White
 			                    textStyle.fontWeight: FontWeight.Normal
 	            	            textStyle.fontSize: FontSize.Medium
-			                }
-			                Label {
-			                    id: mvCC                    		                    		                    
-			                    textStyle.color: Color.White
-			                    textStyle.fontWeight: FontWeight.Normal
-	            	            textStyle.fontSize: FontSize.Medium
-	            	            multiline: true
-			                }
+			                }			                
 			                Label {
 			                    id: mvRT                    		                    		                    
 			                    textStyle.color: Color.White
@@ -98,6 +91,19 @@ Page{
 			    }
 			}//
 			Container {
+			    topPadding: 40
+			    leftPadding: 20
+			    rightPadding: 20
+			    Label {
+                    id: mvCC                    		                    		                    
+                    textStyle.color: Color.White
+                    textStyle.fontWeight: FontWeight.Normal
+    	            textStyle.fontSize: FontSize.Medium
+    	            multiline: true
+                }
+			}
+			Container {
+			    topPadding: 40
 			    leftPadding: 20
 			    rightPadding: 20
 				Label {    
@@ -167,6 +173,9 @@ Page{
 	    synopsis.text = "Synopsis: " + _searchController.movieS;
 	    
 	    cast.text = "Cast: " + _searchController.movieCast;
+	    
+	    thumbnail.url = _searchController.movieThumbnail;
+	    fullImageUrl = _searchController.movieFullScreen;
 	}
 	onCreationCompleted: {
 	    _searchController.movieDetailsReady.connect(populateUI);	    

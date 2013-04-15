@@ -91,6 +91,7 @@
     <!--  The icon for the application, which should be 86x86. -->
     <icon>
         <image>icon.png</image>
+        <image>popcorn_app copy.png</image>
     </icon>
 
     <asset path="icon.png">icon.png</asset>
@@ -100,6 +101,7 @@
     <asset path="translations" dest="qm">
         <include name="*.qm"/>
     </asset>
+    <asset path="assets/images/popcorn_app copy.png">popcorn_app copy.png</asset>
     
     <!-- Request permission to execute native code.  Required for native applications. -->
     <permission system="true">run_native</permission>

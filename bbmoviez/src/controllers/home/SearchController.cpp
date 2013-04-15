@@ -23,7 +23,7 @@ SearchController::~SearchController() {
 
 void SearchController::search(QString criteria) {
 	//this is temporary. We need to emit the searchResolved signal once we've found something based on the search criteria
-	if(criteria == "P") {
+	if(criteria == "Movies") {
 		fprintf(stderr, QString("\n -------correct----------\n").toStdString().c_str());
 		emit searchResolved();
 	}
@@ -55,7 +55,6 @@ void SearchController::bindData(QString list) {
 	}
 	m_model->insertList(m_myMovies);
 
-	//fprintf(stderr, QString("\n -------test data: "+dataSet[0].toString()+"----------\n").toStdString().c_str());
 	fprintf(stderr, "\n -----------list: %d -----------\n",theList.size());
 	listView->setDataModel(m_model);
 
@@ -74,22 +73,9 @@ void SearchController::handleData(QString data) {
 	QList<QVariant> theList = map["movies"].toList();
 	//m_movieDetails = theList[0].toMap();
 	fprintf(stderr, "\n -----------movie data List: %d -----------\n",theList.size());//m_movieDetails
-	/*foreach (const QVariant& item, theList) {
-		//QVariantMap map = item.toMap();
-		QVariantMap map = QVariantMap();
-		map["title"] = item.toMap()["title"].toString();
-		map["year"] = item.toMap()["year"].toString();
-		map["rating"] = item.toMap()["mpaa_rating"].toString();
-		map["runtime"] = item.toMap()["runtime"].toString();
-		map["criticsConsensus"] = item.toMap()["critics_consensus"].toString();
-		map["runtime"] = item.toMap()["runtime"].toString();
 
-		fprintf(stderr, QString(" -------title: "+item.toMap()["title"].toString()+"----------\n").toStdString().c_str());
-		fprintf(stderr, QString(" -------year: "+item.toMap()["year"].toString()+"----------\n").toStdString().c_str());
-		m_movieDetails.append(map);
-	}*/
-	foreach (const QVariant& item, theList) {
-		QVariantMap details = item.toMap();
+	//foreach (const QVariant& item, theList) {
+		QVariantMap details = theList[0].toMap();
 		m_movieTitle = details["title"].toString();
 		m_movieYear = details["year"].toString();
 		m_movieRating = details["mpaa_rating"].toString();
@@ -129,6 +115,11 @@ void SearchController::handleData(QString data) {
 		}
 		m_movieCast.remove(m_movieCast.size()-2,2);
 		fprintf(stderr, QString(" -------m_movieCast: "+m_movieCast+"----------\n").toStdString().c_str());
-	}
+
+		const QVariantMap& images = details["posters"].toMap();
+		m_movieThumnail = images["thumbnail"].toString();
+		fprintf(stderr, QString(" -------m_movieThumnail: "+m_movieThumnail+"----------\n").toStdString().c_str());
+		m_movieFullScreenImage = images["original"].toString();
+	//}
 	emit movieDetailsReady();
 }
