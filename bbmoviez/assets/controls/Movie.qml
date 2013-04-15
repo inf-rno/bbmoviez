@@ -5,7 +5,7 @@ Container {
     
     property string name
     property string members
-    property string pictureUrl  
+    //property string pictureUrl  
     property string movieId  
 
     preferredWidth: 768
@@ -20,12 +20,12 @@ Container {
             orientation: LayoutOrientation.LeftToRight
         }
     
-	    ImageView {
+	    /*ImageView {
 	        preferredWidth: 81
 	        minWidth: 81
 	        preferredHeight: 81
 	        imageSource: ""//pictureUrl	        
-	    }
+	    }*/
 	    
 	    Container {
 	        layout: StackLayout {
@@ -58,10 +58,10 @@ Container {
         preferredHeight: 4
         background: Color.create("#00A7DE")
     }
-    onTouch: {
+    /*onTouch: {
         if(event.isDown()) {                             
             movieItem.ListItem.view.pushDetails();
             movieItem.ListItem.view.getController().searchMovieDetails(name);                      
         }
-    }   	    
+    } */  	    
 }

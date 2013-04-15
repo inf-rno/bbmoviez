@@ -14,6 +14,10 @@ NavigationPane {
         ComponentDefinition {
             id: movieDetailsPage
             source: "asset:///pages/MovieDetails.qml"
+        },
+        ComponentDefinition {
+            id: fullImagePage
+            source: "asset:///pages/FullImageView.qml"
         }
     ]
     

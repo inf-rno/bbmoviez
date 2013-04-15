@@ -26,6 +26,10 @@ class SearchController : public Controller {
 
 	Q_PROPERTY(QVariant movieCast READ movieCast)
 
+	Q_PROPERTY(QVariant movieThumbnail READ movieThumbnail)
+
+	Q_PROPERTY(QVariant movieFullScreen READ movieFullScreen)
+
 public:
 
 	explicit SearchController(bb::cascades::QmlDocument* rootQML);
@@ -53,6 +57,9 @@ public slots:
 	const QString& movieS()const {return m_movieSynopsis;}
 
 	const QString& movieCast()const {return m_movieCast;}
+
+	const QString& movieThumbnail()const {return m_movieThumnail;}
+	const QString& movieFullScreen()const {return m_movieFullScreenImage;}
 
 	Q_INVOKABLE QVariantList getMovieDetails(){
 		return m_movieDetails;
@@ -86,6 +93,9 @@ private:
 	QString m_movieSynopsis;
 
 	QString m_movieCast;
+	QString m_movieThumnail;
+
+	QString m_movieFullScreenImage;
 
 	//QVariantMap m_movieDetails;
 };
